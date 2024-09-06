@@ -35,7 +35,12 @@ function createRoom() {
     }
     room_id = PRE + room + SUF;
     peer = new Peer(room_id,{
-        config: ICE_config
+        config: ICE_config,
+        key: 'peerjs',
+        host: 'peerjs-one.vercel.app',
+        port: 443,
+        path: '/',
+        secure: true,
     })
     peer.on('open', (id) => {
         console.log("Peer Connected with ID: ", id)
@@ -102,7 +107,12 @@ function joinRoom() {
     room_id = PRE + room + SUF;
     hideModal()
     peer = new Peer({
-        config: ICE_config
+        config: ICE_config,
+        key: 'peerjs',
+        host: 'peerjs-one.vercel.app',
+        port: 443,
+        path: '/',
+        secure: true,
     })
     peer.on('open', (id) => {
         console.log("Connected with Id: " + id)
