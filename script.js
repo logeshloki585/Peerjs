@@ -35,9 +35,7 @@ function createRoom() {
     }
     room_id = PRE + room + SUF;
     peer = new Peer(room_id,{
-        host: 'myserver.com',
-port: 9000,
-debug: true,
+        
 config: { 'iceServers': [
 { 'url': 'stun:stun.l.google.com:19302' }
 ] }
@@ -107,9 +105,6 @@ function joinRoom() {
     room_id = PRE + room + SUF;
     hideModal()
     peer = new Peer({
-        host: 'myserver.com',
-port: 9000,
-debug: true,
 config: { 'iceServers': [
 { 'url': 'stun:stun.l.google.com:19302' }
 ] }
