@@ -65,10 +65,18 @@ function setLocalStream(stream) {
     video.play();
 }
 function setRemoteStream(stream) {
-
     let video = document.getElementById("remote-video");
     video.srcObject = stream;
-    video.play();
+
+    var playPromise = video.play();
+
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            console.log('video playing')
+        }).catch(error => {            
+            console.error('Autoplay was prevented:', error);
+        });
+    }
 }
 
 function hideModal() {
